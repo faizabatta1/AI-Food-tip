@@ -1,0 +1,85 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    const double e=2.718;
+    double R,D,S,F;
+    double x1,x2;
+    double poor,good,excellent;
+    double t,T,tG;
+    inputAgain:
+    Read:
+    cin>>F;
+    if(F<0||F>10)goto Read;
+    else{
+     if(F>=0&&F<=3)R=1;
+     if(F>=0&&F<4)D=0;
+    
+     if(F>7&&F<=10)D=1;
+     if(F>=6&&F<=10)R=0;
+     if(F>=3&&F<=6 ){
+        R= (double)((6-F)/(3));
+    }
+    
+     if(F>=4&&F<=7 ){
+        D=(double)((F-4)/(3));
+    }
+    }
+   Read1:
+   cin>>S;
+   ///Services
+  
+   if(S<0||S>10)goto Read1;
+   else{
+   if(S>5)poor=0;
+    if(S>=0&&S<=5)excellent=0;
+    if(S>=5&&S<=10 ){
+        good= (double) pow(e,(-pow((S-5),2)/(5.78)));
+      
+       
+   }
+   
+   else if(S>=0&&S<=5 ){
+       good= (double) pow(e,(-pow((S-5),2)/(5.78)));
+       
+   }
+else if(S>=5&&S<=10 ){
+       excellent= (double) pow(e,(-pow((S-10),2)/(5.78)));
+       
+   }
+    else if(S>=0&&S<=5 ){
+       good= (double) pow(e,(-pow(S,2)/(5.78)));
+       
+   }
+   }
+  
+//cheap
+if(poor>good &&poor>excellent || R>D){
+    t=poor;
+   // cout<<t;
+}
+//average
+ if(good>poor &&good>excellent ){
+    t=good;
+   // cout<<t;
+}
+
+//geneerous
+ if(excellent>poor &&excellent>good || D>R ){
+    tG=(double)max(D,excellent);
+}
+T=(double)((good*15)+(25*tG)/(tG+good));
+cout<<T << endl;
+goto inputAgain;
+    return 0;
+}
